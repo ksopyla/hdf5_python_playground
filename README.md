@@ -12,3 +12,9 @@ groups and metadata.
 
 **big_file.py** - contains script which shows how to write to huge files in chunks.
 It uses dataset.resize to change the file size.
+
+
+
+Get the code:
+* Clone at gitlab: https://github.com/ksopyla/hdf5_python_playground
+* Run in plon ide: 

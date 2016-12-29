@@ -43,14 +43,13 @@ throughput = kbytes_write/(1024*duration.total_seconds())
 print('Writing takes {} {}MB/s'.format(duration, throughput))
     
     
-hf =  h5py.File('large.hdf5','r+')
-hf.visit(printname)
-dset = hf.get('data')
-
-
-a = np.zeros((100,100))
-dset.read_direct(a, np.s_[0:10,0:10],np.s_[0:10,0:10])
-print(dset[80:110])
-print(hf.keys())
-print(dset.shape)
-hf.close()    
+with h5py.File('large.hdf5','r') as hf
+    hf.visit(printname)
+    dset = hf.get('data')
+    
+    
+    a = np.zeros((100,100))
+    dset.read_direct(a, np.s_[0:10,0:10],np.s_[0:10,0:10])
+    print(dset[80:110])
+    print(hf.keys())
+    print(dset.shape)
